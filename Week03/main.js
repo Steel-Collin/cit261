@@ -86,7 +86,6 @@ function sportsButton(){
 }
 
 function objectProperties(sport, location, teamname){
-
     var objectedSaved = {
         sportstype: sport,
         teamname: teamname,
