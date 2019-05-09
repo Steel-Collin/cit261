@@ -1,44 +1,44 @@
 function loopFunction (){
-    var value = document.getElementById('loopIn').value;
+    var value = ["Collin", "Karen", "spacer", "Gavin", "Lijah", "Katie", "Jarom", "Kavan"];
     foriLoop(value);
 
     forInObjectLoop();
 
     var bed = whileLoop();
 
-    document.getElementById('loopOut').value = doWhileLoop(bed) + "</br>";    
-    document.getElementById('loopOut').value = objectProperties() + "</br>";    
+    document.getElementById('toyText').value = doWhileLoop(bed) + "</br>";    
+    document.getElementById('toyText').value = objectProperties() + "</br>";    
 }
 
 function foriLoop(value){
     for(var i = 0; i < value.length; i++)
     {        
-        if(i == 3)
-            document.getElementById('loopOut').value = "4th array position"  + '\n';
+        if(i == 2)
+            document.getElementById('loopIn').value += "Kids"  + '\n';
         else     
-            document.getElementById('loopOut').value = value[i]  + '\n';
+            document.getElementById('loopIn').value += value[i]  + '\n';
     }
 }
 
 function forInObjectLoop(){
-    var car = {part1:"door", part2:"mirror", part3:"seat"};
-    car.part1 = "door jam";
+    var favorite = {Gavin:"Guitar", Jarom:"Thomas", Kavan:"Ball"};
     var i = 0;
-    for(c in car)
+    for(c in favorite)
     {
-        switch(car[c]){
-            case "door":
-                document.getElementById('carText').innerHTML += car[c] + "panel" + "</br>";
+        
+        switch(c){
+            case "Gavin":
+                document.getElementById('loopOut').value += c + " Loves playing " + favorite[c] + '\n';
                 break;
-            case "mirror":
-                document.getElementById('carText').innerHTML += "side" + car[c] + "</br>";
+            case "Jarom":
+                document.getElementById('loopOut').value += c + " Plays with " + favorite[c] + " the Train" + '\n';
                 break;
-            case "seat":
-                document.getElementById('carText').innerHTML += car[c] + "belt" + "</br>";
-                car[car.length] = "adding one";
+            case "Kavan":
+                document.getElementById('loopOut').value += c + " Loves Bouncing a " + favorite[c] + '\n';
+                favorite["Lijah"] = "Books";
                 break;
             default:
-                document.getElementById('carText').innerHTML += "Default </br>";
+                document.getElementById('loopOut').value += "Default \n";
                 break;
 
         }
@@ -51,7 +51,7 @@ function whileLoop(){
     var i = 0;
     while(bed[i])
     {
-        document.getElementById('carText').innerHTML += bed[i] + "</br>";
+        document.getElementById('toyText').innerHTML += bed[i] + "</br>";
         i++;
     }
 
@@ -62,7 +62,7 @@ function doWhileLoop(bed){
     var i = 0;
     bed[bed.length] = "Mattress";
     do{
-        document.getElementById('carText').innerHTML += bed[i] + "</br>";
+        document.getElementById('toyText').innerHTML += bed[i] + "</br>";
         i++;
     }while(bed[i])
 
@@ -70,10 +70,11 @@ function doWhileLoop(bed){
 }
 
 function clearP(){
-    document.getElementById('carText').innerHTML = "";
+    document.getElementById('toyText').innerHTML = "";
 }
 
 function clearTA(){
+    document.getElementById('loopIn').value = "";
     document.getElementById('loopOut').value = "";
 }
 

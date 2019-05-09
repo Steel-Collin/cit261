@@ -1,0 +1,19 @@
+body{
+    background-color:azure;
+    margin: 5%;
+    
+}
+
+th{
+    border-bottom: 5px solid black;
+    font-size: 25px;
+}
+
+td{
+    font-size: 18px;
+}
+
+table{
+    padding: 0%;
+    width: 75%;
+}
