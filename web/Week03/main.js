@@ -6,8 +6,9 @@ function loopFunction (){
 
     var bed = whileLoop();
 
-    document.getElementById('toyText').value = doWhileLoop(bed) + "</br>";    
-    document.getElementById('toyText').value = objectProperties() + "</br>";    
+    document.getElementById('toyText').value = doWhileLoop(bed) + "</br>";  
+    var newObject = new objectProperties("Soccer", "Salt Lake City", "Real")  
+    document.getElementById('toyText').innerHTML += newObject.location + " " + newObject.teamname + "</br>";    
 }
 
 function foriLoop(value){
@@ -78,24 +79,23 @@ function clearTA(){
     document.getElementById('loopOut').value = "";
 }
 
+function objectProperties(sport, location, teamname){
+        this.sport = sport;
+        this.teamname = teamname;
+        this.location = location;
+     
+}
+
+objectProperties.prototype.locName = function() {
+    return this.location + " " + this.teamname;
+};
+
 function sportsButton(){
     var sport = document.getElementById('sportType').value;
     var teamname = document.getElementById('sportName').value;
     var location = document.getElementById('sportLoc').value;
 
-    document.getElementById('teamInfo').innerHTML = objectProperties(sport, location, teamname).locName();
+    var sportName = new objectProperties(sport, location, teamname);
+    document.getElementById('teamInfo').innerHTML = sportName.locName();
 }
 
-function objectProperties(sport, location, teamname){
-    var objectedSaved = {
-        sportstype: sport,
-        teamname: teamname,
-        location: location,
-        locName: function() {
-            return this.location + " " + this.teamname;
-        }
-
-    }
-    return objectedSaved;
-    
-}
