@@ -4,22 +4,35 @@ function getQuestion (){
         if(this.readyState == 4 && this.status == 200)
         {
             callbackResponse(this);
-            //getFromTextFile(this);
         }
     };
-    xhttp.open("GET", "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple", true);
-    //xhttp.open("GET", "TextFile.txt", true);
+    xhttp.open("GET", "https://opentdb.com/api.php?amount=20&difficulty=medium&type=multiple", true);
     xhttp.send();
     
 }
 
 function callbackResponse(resp){
     var jsonResponse = JSON.parse(resp.responseText);
-    document.getElementById("Question").innerHTML = jsonResponse.results[0].question;
-    document.getElementById("Answers").innerHTML = jsonResponse.results[0].correct_answer;
-    for(var i = 0; i< jsonResponse.results[0].incorrect_answers.length; i++)
+    document.getElementById("jsonText").innerHTML = JSON.stringify(jsonResponse);
+    for(var t = 0; t < 20; t++)
     {
-        document.getElementById("Answers").innerHTML += "</br>" + jsonResponse.results[0].incorrect_answers[i];
+        if(t != 0)
+        {
+            document.getElementById("Question").innerHTML += "</br>" + jsonResponse.results[t].question +
+            "</br>" + jsonResponse.results[t].correct_answer;
+        }
+        else
+        {
+            document.getElementById("Question").innerHTML += jsonResponse.results[t].question + "</br>" + 
+            jsonResponse.results[t].correct_answer;
+        }
+        for(var i = 0; i< jsonResponse.results[0].incorrect_answers.length; i++)
+        {
+            document.getElementById("Question").innerHTML += "</br>" + jsonResponse.results[t].incorrect_answers[i];
+        }
+
+        document.getElementById("Question").innerHTML += "</br>" + "</br>";
+        
     }
 }
 
