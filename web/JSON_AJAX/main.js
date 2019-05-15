@@ -4,9 +4,11 @@ function getQuestion (){
         if(this.readyState == 4 && this.status == 200)
         {
             callbackResponse(this);
+            //getFromTextFile(this);
         }
     };
     xhttp.open("GET", "https://opentdb.com/api.php?amount=20&difficulty=medium&type=multiple", true);
+    //xhttp.open("GET", "TextFile.txt", true);
     xhttp.send();
     
 }
