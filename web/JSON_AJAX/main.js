@@ -15,7 +15,7 @@ function getQuestion (){
 
 function callbackResponse(resp){
     var jsonResponse = JSON.parse(resp.responseText);
-    document.getElementById("jsonText").innerHTML = JSON.stringify(jsonResponse);
+    document.getElementById("jsonText").innerHTML += JSON.stringify(jsonResponse);
     for(var t = 0; t < 20; t++)
     {
         if(t != 0)
