@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>CIT261</title>
+   <meta name="viewport" content="width=device-width, initial-scale1" />
+   <link href="main.css" rel="stylesheet">
+   <script type="text/javascript" src="main.js"></script>
+   <script type="application/json" src="main.js"></script>
+</head>
+<body onload="clearQuestions()">
+   <h1 id="header">JSON and AJAX</h1></br>
+   <p id="Trivia Questions"></p></br>
+   <div class="contain" id="container">    
+      <div id="getMore">         
+            <input type="button" id="more" value="Get Question" onclick="getQuestion()">       
+      </div>
+      <div id="jsonText">         
+      </div>
+      <div id="Question">  </br>       
+      </div>
+      <div id="Answers"> 
+         <input type="button" id="clear" value="Clear" onclick="clearQuestions()">       
+      </div>
+   </div>      
+</body>
+</html>
