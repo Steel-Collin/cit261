@@ -3,7 +3,9 @@ function getQuestion (){
     xhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200)
         {
-            callbackResponse(this);
+            var jsonResponse = JSON.parse(this.responseText);
+            sessionStorage.setItem("resp",this.response)
+            callbackResponse();
             //getFromTextFile(this);
         }
     };
@@ -13,8 +15,9 @@ function getQuestion (){
     
 }
 
-function callbackResponse(resp){
-    var jsonResponse = JSON.parse(resp.responseText);
+function callbackResponse(){
+    var jsonResponse = sessionStorage.getItem("resp");
+    jsonResponse = JSON.parse(jsonResponse);
     var questDiv = document.getElementById('Question');
     var ansDiv = document.getElementById('Answers');
     var qcount = 0;
