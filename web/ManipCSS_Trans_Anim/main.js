@@ -1,4 +1,5 @@
 function getQuestion (){
+    transitionBack();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200)
@@ -87,6 +88,8 @@ function callbackResponse(resp){
 }
 
 function clearQuestions(){
+    transitionBack();
+    createFooter();
     var divValue = document.getElementById("Question");
     while(divValue.firstChild)
     {
@@ -110,12 +113,22 @@ function changeCSS(value){
     var answerC = document.getElementById("ansCLabID" + value);
     var answerW = document.getElementById("ansWLabID" + value);
     var questions = document.getElementById("Question"); 
+    var changeScreen = document.getElementById('body');
 
     //questions.style.backgroundColor = "blue";
     if(answerC != null)
+    {
         answerC.style.color = "green";
+        changeScreen.style.backgroundColor = "green";
+    }
     if(answerW != null)
+    {
         answerW.style.color = "red";
+        changeScreen.style.backgroundColor = "red";
+    }
+    document.getElementById('icon').style.animationPlayState = "running";
+    document.getElementById('icon1').style.animationPlayState = "running";
+    
 }
 
 function setCSS(){
@@ -126,4 +139,30 @@ function setCSS(){
     container.style.marginLeft = "10%";
     container.style.marginRight = "10%";
     container.style.backgroundColor = "lightblue";
+}
+
+function transitionBack(){
+    var changeScreen = document.getElementById('body');
+
+    changeScreen.style.backgroundColor = "azure";
+    document.getElementById('icon').style.animationPlayState = "paused";
+    document.getElementById('icon1').style.animationPlayState = "paused";
+}
+
+function createFooter(){
+    var footCreate = document.getElementsByClassName('foot')[0];
+    footCreate.style.backgroundColor = "black";
+    footCreate.style.color = "white";
+    footCreate.style.height = "80px";
+    footCreate.style.paddingLeft = "10px";
+    footCreate.style.paddingRight = "10px";
+    footCreate.style.marginLeft = "10%";
+    footCreate.style.marginRight = "10%";
+    footCreate.style.textAlign = "right";
+    footCreate.style.justifyContent = "center";
+    footCreate.innerHTML = "<a href='https://opentdb.com/api_config.php'>Click here to access the trivia Site." + 
+        "</a></br>Author: Collin Steel</br>CIT261";
+    footCreate.style.fontSize = "18px";
+    document.getElementsByTagName('a')[0].style.color = "white";
+
 }

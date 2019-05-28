@@ -1,3 +1,47 @@
 body{
     background-color:azure;
+    transition-property: background-color;
+    transition-duration: 3s;
 }
+
+#icon{
+    width: 100px;
+    height: 10px;
+    background-color: red;
+    animation: mySymbol 3s linear 0s infinite alternate;
+    animation-play-state: paused;
+    position: relative;  
+    top: 20px;  
+    left: 7%;
+}
+#icon1{
+    width: 10px;
+    height: 100px;
+    background-color: red;
+    animation: mySymbol1 3s linear 0s infinite alternate;
+    animation-play-state: paused;
+    position: absolute;
+    left: 10%;
+}
+
+@keyframes mySymbol {
+    from {background-color: red;}
+    to{background-color: greenyellow;}
+    from{left: 7%;}
+    to{left:10%;}
+    from{top: 0px;}
+    to{top:100px;}
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+}
+
+@keyframes mySymbol1{
+    from {background-color: red;}
+    to{background-color: greenyellow;}
+    from{left: 10%;}
+    to{left:15%;}
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+    
+}
+
