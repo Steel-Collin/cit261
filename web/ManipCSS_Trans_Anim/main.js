@@ -166,3 +166,9 @@ function createFooter(){
     document.getElementsByTagName('a')[0].style.color = "white";
 
 }
+
+function touchTest(){
+    var bodyVar = document.getElementById('body');
+    var oldColor = bodyVar.style.backgroundColor;
+    bodyVar.style.backgroundColor = "yellow";
+}
