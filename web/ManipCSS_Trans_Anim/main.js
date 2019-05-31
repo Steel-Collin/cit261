@@ -1,3 +1,7 @@
+document.getElementById('header').addEventListener('click', DisplayScore);
+
+
+
 function getQuestion (){
     transitionBack();
     var xhttp = new XMLHttpRequest();
@@ -173,7 +177,6 @@ function touchTest(){
     bodyVar.style.backgroundColor = "yellow";
 }
 
-document.getElementById('header').addEventListener('click', DisplayScore);
 function DiaplayScore(){
     sessionStorage.setItem('score').setItem(200);
     document.getElementById('score').innerHTML = sessionStorage.getItem('score');
