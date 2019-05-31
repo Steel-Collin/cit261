@@ -172,3 +172,9 @@ function touchTest(){
     var oldColor = bodyVar.style.backgroundColor;
     bodyVar.style.backgroundColor = "yellow";
 }
+
+document.getElementById('header').addEventListener('click', DisplayScore());
+function DiaplayScore(){
+    sessionStorage.setItem('score').setItem(200);
+    document.getElementById('score').innerHTML = sessionStorage.getItem('score');
+}
