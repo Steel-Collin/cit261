@@ -1,4 +1,4 @@
-document.getElementById('header').addEventListener('click', DisplayScore);
+document.getElementById("score").addEventListener("click", DisplayScore)
 
 
 
@@ -177,7 +177,7 @@ function touchTest(){
     bodyVar.style.backgroundColor = "yellow";
 }
 
-function DiaplayScore(){
+function DisplayScore(){
     sessionStorage.setItem('score').setItem(200);
     document.getElementById('score').innerHTML = sessionStorage.getItem('score');
 }
