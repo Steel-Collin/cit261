@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>CIT261</title>
+   <meta name="viewport" content="width=device-width, initial-scale1" />
+   <link href="Tags_Events.css" rel="stylesheet">
+   <script type="text/javascript" src="Tags_Events.js"></script>
+   <script type="application/json" src="Tags_Events.js"></script>
+</head>
+<body id="body" onload="startup()">
+   <h1 id="header">Tags and Events</h1></br>
+   <div class="icon" id="icon" >This is a test to get the listener working.</div>
+   <script>
+      document.getElementById('icon').addEventListener('click', displayStuff1);
+
+      function displayStuff1(){
+         document.getElementById('display').innerHTML = "this is what is displayed.";
+      }
+   </script>
+   <div class="icon" id="icon1"></div>
+   <div class="contain" id="container">
+      <div id='display'>
+
+      </div>
+      <div id='display2'>
+
+      </div>
+   </div> 
+   <footer class="foot" id="foot">
+
+   </footer>     
+</body>
+</html>
