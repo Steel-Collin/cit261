@@ -135,11 +135,11 @@ function setListener(){
     document.getElementById("header").addEventListener("click", DisplayFooter);
     document.getElementById("icon").addEventListener("animationend", DisplayScore);
     document.getElementById("body").addEventListener("transitionend", function () {
-        if(document.getElementById('body').backgroundColor == "green")
+        if(document.getElementById('body').style.backgroundColor == "green")
             document.getElementById('correct').innerHTML = "That is the correct answer!";
-        else if(document.getElementById('body').backgroundColor == "red")
+        else if(document.getElementById('body').style.backgroundColor == "red")
             document.getElementById('correct').innerHTML = "That answer is incorrect!";
-        else if(document.getElementById('body').backgroundColor == "azure")
+        else if(document.getElementById('body').style.backgroundColor == "azure")
             document.getElementById('correct').innerHTML = "";
     });
 
