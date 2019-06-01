@@ -133,6 +133,15 @@ function changeCSS(value){
 
 function setListener(){
     document.getElementById("header").addEventListener("click", DisplayFooter);
+    document.getElementById("icon").addEventListener("animationend", DisplayScore);
+    document.getElementById("body").addEventListener("transitionend", function () {
+        if(document.getElementById('body').backgroundColor == "green")
+            document.getElementById('correct').innerHTML = "That is the correct answer!";
+        else if(document.getElementById('body').backgroundColor == "red")
+            document.getElementById('correct').innerHTML = "That answer is incorrect!";
+        else if(document.getElementById('body').backgroundColor == "azure")
+            document.getElementById('correct').innerHTML = "";
+    });
 
 }
 function setCSS(){
@@ -184,4 +193,8 @@ function DisplayFooter(){
     document.getElementById('score').innerHTML = sessionStorage.getItem('score');
     createFooter();
 }
-
+function DisplayScore(){
+    sessionStorage.setItem('score', 200);
+    document.getElementById('score').innerHTML = sessionStorage.getItem('score');
+    
+}
