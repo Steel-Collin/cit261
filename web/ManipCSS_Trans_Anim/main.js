@@ -1,6 +1,3 @@
-document.getElementById("score").addEventListener("click", DisplayScore)
-
-
 
 function getQuestion (){
     transitionBack();
@@ -136,6 +133,8 @@ function changeCSS(value){
 }
 
 function setCSS(){
+    document.getElementById("header").addEventListener("click", DisplayScore);
+
     var head = document.getElementById('header');
     var container = document.getElementById('container');
 
@@ -177,7 +176,38 @@ function touchTest(){
     bodyVar.style.backgroundColor = "yellow";
 }
 
+
 function DisplayScore(){
-    sessionStorage.setItem('score').setItem(200);
-    document.getElementById('score').innerHTML = sessionStorage.getItem('score');
+    //sessionStorage.setItem('score').setItem(200);
+    document.getElementById('score').innerHTML = "200";
+}
+
+function drawStuff(){
+    var drawing = document.getElementById('funstuff');
+    var drawing2 = document.getElementById('funstuff2');
+
+    drawing.style.width = "0";
+    drawing.style.height = "0";
+    drawing.style.borderTop = "100px solid transparent"; 
+    drawing.style.borderLeft = "100px solid transparent"; 
+    drawing.style.borderBottom = "100px solid red"; 
+
+    drawing2.style.height = "100px";
+    drawing2.style.width = "50px"
+    drawing2.style.backgroundColor = "yellow";
+    drawing2.style.animation = "myDrawing 3s linear 2s infinite alternate";
+    drawStuff.style.an
+    drawing2.style.animationPlayState = "running";
+    drawing2.style.position = "relative";
+    drawing2.style.left = "40%";
+    drawing2.style.transform = "rotate(50deg)";
+    var pos = 0;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if(pos == 350)
+        clearInterval(id);
+        else 
+            pos++;
+            drawing2.style.left = pos + 'px';
+    }
 }
