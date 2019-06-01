@@ -132,8 +132,11 @@ function changeCSS(value){
     
 }
 
+function setListner(){
+    document.getElementById("header").addEventListener("click", DisplayFooter);
+
+}
 function setCSS(){
-    document.getElementById("header").addEventListener("click", DisplayScore);
 
     var head = document.getElementById('header');
     var container = document.getElementById('container');
@@ -177,9 +180,9 @@ function touchTest(){
 }
 
 
-function DisplayScore(){
-    //sessionStorage.setItem('score').setItem(200);
-    document.getElementById('score').innerHTML = "200";
+function DisplayFooter(){
+    sessionStorage.setItem('score').setItem(200);
+    document.getElementById('score').innerHTML = sessionStorage.getItem('score');
 }
 
 function drawStuff(){
