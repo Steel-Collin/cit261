@@ -199,7 +199,6 @@ function drawStuff(){
     drawing2.style.width = "50px"
     drawing2.style.backgroundColor = "yellow";
     drawing2.style.animation = "myDrawing 3s linear 2s infinite alternate";
-    drawStuff.style.an
     drawing2.style.animationPlayState = "running";
     drawing2.style.position = "relative";
     drawing2.style.left = "40%";

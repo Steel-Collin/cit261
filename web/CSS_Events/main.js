@@ -89,6 +89,7 @@ function callbackResponse(resp){
 }
 
 function clearQuestions(){
+    document.getElementById('score').innerHTML = "";
     transitionBack();
     var divValue = document.getElementById("Question");
     while(divValue.firstChild)
@@ -126,7 +127,9 @@ function changeCSS(value){
         answerW.style.color = "red";
         changeScreen.style.backgroundColor = "red";
     }
+    document.getElementById('icon').style.animationIterationCount = "infinite";
     document.getElementById('icon').style.animationPlayState = "running";
+    document.getElementById('icon1').style.animationIterationCount = "infinite";
     document.getElementById('icon1').style.animationPlayState = "running";
     
 }
@@ -134,14 +137,7 @@ function changeCSS(value){
 function setListener(){
     document.getElementById("header").addEventListener("click", DisplayFooter);
     document.getElementById("icon").addEventListener("animationend", DisplayScore);
-    document.getElementById("body").addEventListener("transitionend", function () {
-        if(document.getElementById('body').style.backgroundColor == "green")
-            document.getElementById('correct').innerHTML = "That is the correct answer!";
-        else if(document.getElementById('body').style.backgroundColor == "red")
-            document.getElementById('correct').innerHTML = "That answer is incorrect!";
-        else if(document.getElementById('body').style.backgroundColor == "azure")
-            document.getElementById('correct').innerHTML = "";
-    });
+    document.getElementById("body").addEventListener("transitionend", DisplayText);
 
 }
 function setCSS(){
@@ -159,8 +155,8 @@ function transitionBack(){
     var changeScreen = document.getElementById('body');
 
     changeScreen.style.backgroundColor = "azure";
-    document.getElementById('icon').style.animationPlayState = "paused";
-    document.getElementById('icon1').style.animationPlayState = "paused";
+    document.getElementById('icon').style.animationIterationCount = "1";
+    document.getElementById('icon1').style.animationIterationCount = "1";
 }
 
 function createFooter(){
@@ -189,12 +185,18 @@ function touchTest(){
 
 
 function DisplayFooter(){
-    sessionStorage.setItem('score', 200);
-    document.getElementById('score').innerHTML = sessionStorage.getItem('score');
     createFooter();
 }
 function DisplayScore(){
     sessionStorage.setItem('score', 200);
     document.getElementById('score').innerHTML = sessionStorage.getItem('score');
     
+}
+function DisplayText() {
+    if(document.getElementById('body').style.backgroundColor == "green")
+        document.getElementById('correct').innerHTML = "That is the correct answer!";
+    else if(document.getElementById('body').style.backgroundColor == "red")
+        document.getElementById('correct').innerHTML = "That answer is incorrect!";
+    else if(document.getElementById('body').style.backgroundColor == "azure")
+        document.getElementById('correct').innerHTML = "";
 }
