@@ -41,5 +41,5 @@ function canDraw(){
     var can = document.getElementById("canvas3");
             var cont = can.getContext("2d");
             var imag = document.getElementById('nasa1');
-            cont.drawImage(imag, 10, 10);
+            cont.drawImage(imag, 0, 0, 500, 500);
 }

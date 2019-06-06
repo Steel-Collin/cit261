@@ -88,6 +88,14 @@ function callbackResponse(resp){
         
 }
 
+function transitionBack(){
+    var changeScreen = document.getElementById('body');
+
+    changeScreen.style.backgroundColor = "azure";
+    document.getElementById('icon').style.animationIterationCount = "1";
+    document.getElementById('icon1').style.animationIterationCount = "1";
+}
+
 function clearQuestions(){
     document.getElementById('score').innerHTML = "";
     transitionBack();
@@ -116,7 +124,6 @@ function changeCSS(value){
     var questions = document.getElementById("Question"); 
     var changeScreen = document.getElementById('body');
 
-    //questions.style.backgroundColor = "blue";
     if(answerC != null)
     {
         answerC.style.color = "green";
@@ -134,12 +141,6 @@ function changeCSS(value){
     
 }
 
-function setListener(){
-    document.getElementById("header").addEventListener("click", DisplayFooter);
-    document.getElementById("icon").addEventListener("animationend", DisplayScore);
-    document.getElementById("body").addEventListener("transitionend", DisplayText);
-
-}
 function setCSS(){
 
     var head = document.getElementById('header');
@@ -151,12 +152,18 @@ function setCSS(){
     container.style.backgroundColor = "lightblue";
 }
 
-function transitionBack(){
-    var changeScreen = document.getElementById('body');
 
-    changeScreen.style.backgroundColor = "azure";
-    document.getElementById('icon').style.animationIterationCount = "1";
-    document.getElementById('icon1').style.animationIterationCount = "1";
+function touchTest(){
+    var bodyVar = document.getElementById('body');
+    var oldColor = bodyVar.style.backgroundColor;
+    bodyVar.style.backgroundColor = "yellow";
+}
+
+function setListener(){
+    document.getElementById("header").addEventListener("click", DisplayFooter);
+    document.getElementById("icon").addEventListener("animationend", DisplayScore);
+    document.getElementById("body").addEventListener("transitionend", DisplayText);
+
 }
 
 function createFooter(){
@@ -176,13 +183,6 @@ function createFooter(){
     document.getElementsByTagName('a')[0].style.color = "white";
 
 }
-
-function touchTest(){
-    var bodyVar = document.getElementById('body');
-    var oldColor = bodyVar.style.backgroundColor;
-    bodyVar.style.backgroundColor = "yellow";
-}
-
 
 function DisplayFooter(){
     createFooter();
