@@ -1,0 +1,227 @@
+.head{
+    grid-area: title;  
+}
+.oven{
+    grid-area: logo;
+    margin-left: 50px;
+    margin-top: 45px;
+    position: absolute;
+}
+
+#headContainer{
+    display: grid;
+    font-size: 50px;
+    font-family: Segoe Script;
+    font-weight: bold;
+    background-color: #EC0808;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    grid-template-areas:
+    "logo title";     
+    grid-gap: 1px;
+    
+}
+.ovencontainer{
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+}
+
+.innercontainer{
+    border-radius: 5%;
+    padding: 0px;
+}
+
+#oven2{
+    width: 55px;
+    height: 75px;
+    background-color: white;
+    
+    
+}
+
+#oven1{
+    width: 57px;
+    height: 10px;
+    background-color: white;
+    transform: skew(10deg);
+}
+
+#oven{
+    width: 15px;
+    height: 23px;
+    background-color: white;
+    transform: skew(-70deg);
+    animation-delay: ms;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-name: open;
+    margin-top: 80px;
+    margin-left: 125px;
+}
+
+@keyframes open{
+    0%{transform: skew(-70%); 
+        height: 21px; 
+        width: 15px;
+        margin-top: 80px;
+        margin-left: 120px
+    }
+    50%{transform: skew(0);
+        height: 45px;
+        width: 7px;
+        margin-top: 60px;
+        margin-left: 95px;
+    }
+    
+    
+}
+
+#headid{
+    padding: 0%;
+    animation-delay: 0s;
+    animation-duration: 2s;
+    animation-direction: reverse;
+    animation-iteration-count:initial;
+    animation-timing-function: ease-out;
+    animation-name: title;
+    
+}
+@keyframes title{
+    0%{transform: translateX(50%); }
+    50%{transform: translateX(0);}
+    
+}
+
+a{
+    display: block;
+    text-decoration: none;
+    color: #44413F;
+    font-size: 20px;
+    padding-bottom: 5px;
+    transition: 0 0 linear border-bottom;  
+    transition: transform 50ms;  
+}
+
+#menu{
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    justify-content: center;
+    background-color: white;
+}
+
+
+#home,#add,#new,#sign{    
+    display: block;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+#container{
+    background-color: white;
+    
+}
+
+a:hover{
+    border-bottom: solid 5px #EC0808;    
+    transform: scale(1.1);
+}
+
+body {
+    background-color: tan;
+    
+}
+
+.recipe1 { grid-area: header; }
+.recipe2 { grid-area: men; }
+.recipe3 { grid-area: main; }
+
+#container{
+    display:grid;
+    background-color: transparent;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #44413F;
+    grid-template-areas:
+    "header men main";     
+    grid-gap: 1px;
+    justify-items: center;
+}
+
+img, video, audio{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+#recipe1{
+    padding:5px;
+    
+}
+
+.innerCon:hover{
+    animation-delay: 0s;
+    animation-duration: 100ms;
+    animation-direction: alternate;
+    animation-iteration-count: 10;
+    animation-name: shake;
+    animation-play-state: running;
+    width: 300px;
+    height: 300px;
+}
+
+@keyframes shake{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(2deg)}   
+}
+
+#recipe2{
+    padding:5px;
+}
+
+#recipe3{
+    padding:5px;
+}
+
+
+
+#cheesecake1{
+    padding-top: 3px;
+    border: solid 1px transparent;
+    border-radius: 10%;
+}
+.innerCon{
+    transition-delay: 0s;
+    transition-duration: 1s;
+    transition-property: width, height;
+    transition-timing-function: linear;
+    border: solid 3px black;
+    border-radius: 5%;
+    text-align: left;
+    background-color: white;
+    width: 220px;
+}
+
+#cheesecake2{
+    padding-top: 3px;
+    border: solid 1px transparent;
+    border-radius: 10%;
+}
+
+
+#cheesecake3{
+    padding-top: 3px;
+    border: solid 1px transparent;
+    border-radius: 10%;
+}
+
+ 
+p{
+    padding-left: 7px;
+}
