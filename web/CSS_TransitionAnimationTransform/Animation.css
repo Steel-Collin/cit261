@@ -1,0 +1,204 @@
+.headContainer{
+    text-align: center;
+    padding: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(50, 50, 255)
+}
+
+#container{
+    min-height: 200px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-right: 5px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border: 5px solid black;
+}
+#animbut{
+    min-height: 200px;
+    display: grid;
+}
+.animbut{
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    background-color: rgb(76, 175, 150);
+    font-size: 25px;
+    text-align: center;
+    padding: 15px 25px;
+}
+
+
+#testbut1{
+    transition: 0s 100ms background-color linear;
+}
+#testbut2{
+    box-shadow: none;
+    animation-name: win;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transition: background-color 500ms,  border 500ms;
+}
+@keyframes win{
+    0%{
+        border:1px solid yellow;
+        background-color: rgb(76, 175, 150);
+    }
+    25%{
+        border:5px solid yellow;
+        background-color: red;
+    }
+    50%{
+        border:10px solid yellow;
+        background-color: rgb(76, 175, 150);
+    }
+    75%{
+        border:5px solid yellow;
+        background-color: red;
+    }
+    100%{
+        border:1px solid yellow;
+        background-color: rgb(76, 175, 150);
+    }
+}
+#testbut3{
+    transition: 0s 1s opacity linear;
+}
+
+#testbut1:active{
+    box-shadow: 0 9px #666;
+    background-color: #3e8e41;
+    transform: translateY(4px);    
+}
+
+#testbut3:active{
+    box-shadow: none;
+    background-color: #3e8e41;
+    transform: translateY(4px); 
+    opacity: 1;
+}
+
+#container3{
+    background-color:rgb(154, 217, 234);
+    overflow:hidden;
+    width: 500px;
+}
+#container2{
+    border: 2px solid black;
+    background-color: white;
+    min-height: 300px;
+    min-width: 300px;
+}
+
+#img1{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    height: 200px;
+    text-align: center;
+    animation-name: spinner;
+    animation-delay: 0s;
+    animation-direction: reverse;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#img2{
+    background-color: rgb(154, 217, 234);
+    animation-name: slide;
+    animation-delay: 0s;
+    animation-direction: forward;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes slide{
+    10%{transform: translate(50px)}
+    15%{transform: translate(100px)}
+    20%{transform: translate(150px)}
+    25%{transform: translate(200px)}
+    30%{transform: translate(250px)}
+    35%{transform: translate(300px)}
+    40%{transform: translate(350px)}
+    45%{transform: translate(400px)}
+    50%{transform: translate(500px)}
+    55%{transform: translate(450px)}
+    60%{transform: translate(400px)}
+    65%{transform: translate(350px)}
+    70%{transform: translate(300px)}
+    75%{transform: translate(250px)}
+    80%{transform: translate(200px)}
+    85%{transform: translate(150px)}
+    90%{transform: translate(100px)}
+    95%{transform: translate(50px)}
+    100%{transform: translate(0px)}
+}
+
+@keyframes spinner{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}
+}
+
+#lowercontainer{
+    display: flex;
+    flex-direction: row;
+}
+#container1{
+   width: 250px;
+    height: 300px;
+    background-color: red;
+    overflow:auto;
+}
+#game{
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(76, 175, 150);
+    font-size: 20px;
+    text-align: center;
+    padding: 5px 15px;
+    position: relative;
+    animation-name: gamemotion;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-duration: 2500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transition: top 500ms, left 500ms;
+}
+@keyframes gamemotion{
+    0%{
+        left:0px;
+        top: 0px;
+    }
+    25%{
+        left:100px;
+        top: 50px;
+    }
+    50%{
+        left:50px;
+        top: 100px;
+    }
+    75%{
+        left:0px;
+        top: 200px;
+    }
+    100%{
+        left:180px;
+        top: 100px;
+    }
+}
+#game:active{
+    transform: translateY(4px); 
+    animation-iteration-count: 0;
+}
+
