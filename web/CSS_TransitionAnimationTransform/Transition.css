@@ -8,8 +8,19 @@
     background-color: rgb(50, 50, 255)
 }
 
+input[type=checkbox]:checked + label{
+    color: white;
+    background-color: #3e8e41;
+    transition: all .5s linear;
+}
+
+label{
+    padding:5px;
+    border:2px solid black;
+    border-radius: 5%;
+    font-size: 30px;
+}
 #container{
-    min-height: 200px;
     margin-left: 5%;
     margin-right: 5%;
     padding-right: 5px;
@@ -32,174 +43,119 @@
 }
 
 
-#testbut1{
-    transition: 0s 100ms background-color linear;
+
+
+
+#lowercontainer1{
+    width: 1200px;
+    margin: 50px auto;
+    background-color: rgb(76, 175, 150);
+    overflow: hidden;
+    white-space: nowrap;
+ }
+ 
+ 
+#banner{
+    height: 233px;
+    width: 1200px;
+    margin-bottom: 80px;
 }
-#testbut2{
-    box-shadow: none;
-    animation-name: win;
-    animation-delay: 0s;
-    animation-direction: alternate;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    transition: background-color 500ms,  border 500ms;
-}
-@keyframes win{
-    0%{
-        border:1px solid yellow;
-        background-color: rgb(76, 175, 150);
-    }
-    25%{
-        border:5px solid yellow;
-        background-color: red;
-    }
-    50%{
-        border:10px solid yellow;
-        background-color: rgb(76, 175, 150);
-    }
-    75%{
-        border:5px solid yellow;
-        background-color: red;
-    }
-    100%{
-        border:1px solid yellow;
-        background-color: rgb(76, 175, 150);
-    }
-}
-#testbut3{
-    transition: 0s 1s opacity linear;
+#banner img{
+    transition: all .5s ease;
 }
 
-#testbut1:active{
-    box-shadow: 0 9px #666;
-    background-color: #3e8e41;
-    transform: translateY(4px);    
-}
-
-#testbut3:active{
-    box-shadow: none;
-    background-color: #3e8e41;
-    transform: translateY(4px); 
-    opacity: 1;
-}
-
-#container3{
-    background-color:rgb(154, 217, 234);
-    overflow:hidden;
-    width: 500px;
-}
-#container2{
-    border: 2px solid black;
-    background-color: white;
-    min-height: 300px;
-    min-width: 300px;
-}
-
-#img1{
-    padding-top: 50px;
-    padding-bottom: 50px;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    height: 200px;
-    text-align: center;
-    animation-name: spinner;
-    animation-delay: 0s;
-    animation-direction: reverse;
-    animation-duration: 2500ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-#img2{
-    background-color: rgb(154, 217, 234);
-    animation-name: slide;
-    animation-delay: 0s;
-    animation-direction: forward;
-    animation-duration: 2500ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-@keyframes slide{
-    10%{transform: translate(50px)}
-    15%{transform: translate(100px)}
-    20%{transform: translate(150px)}
-    25%{transform: translate(200px)}
-    30%{transform: translate(250px)}
-    35%{transform: translate(300px)}
-    40%{transform: translate(350px)}
-    45%{transform: translate(400px)}
-    50%{transform: translate(500px)}
-    55%{transform: translate(450px)}
-    60%{transform: translate(400px)}
-    65%{transform: translate(350px)}
-    70%{transform: translate(300px)}
-    75%{transform: translate(250px)}
-    80%{transform: translate(200px)}
-    85%{transform: translate(150px)}
-    90%{transform: translate(100px)}
-    95%{transform: translate(50px)}
-    100%{transform: translate(0px)}
-}
-
-@keyframes spinner{
-    from{transform: rotate(0deg)}
-    to{transform: rotate(360deg)}
-}
-
-#lowercontainer{
-    display: flex;
-    flex-direction: row;
-    margin-left: 5%;
-}
-#container1{
-   width: 250px;
+img{
     height: 300px;
+    width: 400px;
+}
+
+#banner img:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .2);
+}
+
+#container1{
+   width: 150px;
+    height: 200px;
+    margin-left: 5%;
     background-color: red;
     overflow:auto;
-}
-#game{
-    border: none;
-    border-radius: 10px;
-    background-color: rgb(76, 175, 150);
-    font-size: 20px;
-    text-align: center;
-    padding: 5px 15px;
-    position: relative;
-    animation-name: gamemotion;
-    animation-delay: 0s;
-    animation-direction: alternate;
-    animation-duration: 2500ms;
-    animation-iteration-count: infinite;
+    animation-name: moveright;
+    animation-delay: 5s;
+    animation-direction: forward;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
-    transition: top 500ms, left 500ms;
-}
-@keyframes gamemotion{
-    0%{
-        left:0px;
-        top: 0px;
-    }
-    25%{
-        left:100px;
-        top: 50px;
-    }
-    50%{
-        left:50px;
-        top: 100px;
-    }
-    75%{
-        left:0px;
-        top: 200px;
-    }
-    100%{
-        left:180px;
-        top: 100px;
-    }
-}
-#game:active{
-    transform: translateY(4px); 
-    animation-iteration-count: 0;
+    transition: width 1s, height 1s;
 }
 
+@keyframes moveright{
+    from{margin-left: 0%; width: 150px; height: 200px;}
+    to{ margin-left: 30%; width: 300px; height: 400px;}
+    
+}
+
+.slide {
+	animation: bannermove 10s linear infinite;
+}
+
+@keyframes bannermove {
+ 0% {
+    margin-left: 0px;
+ }
+ 100% {
+    margin-left: -1200px;
+ }
+
+}
+
+.test{
+    border: 3px solid black;
+}
+ 
+#div1{
+    transition: all 1s;
+    margin:5%;
+}
+
+#div2{
+    margin:5%;
+    transition: all 1s;
+}
+#div3{
+    margin:5%;
+    transition: all 1s;
+}
+#div4{
+    margin:5%;
+    transition: all 1s;
+}
+
+#div1:hover{
+    font-size: 20px;
+    background-color: #3e8e41;
+    border-radius: 10%;
+}
+
+#div2:hover{
+    padding: 5%;
+    box-shadow: 3%;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 20px;
+    color: royalblue
+}
+#div3:hover{
+    padding: 10%;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+#div4:hover{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    padding-top:10px;
+    padding-left: 50px;
+    background-color: aquamarine;
+}

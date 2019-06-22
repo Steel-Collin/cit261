@@ -3,34 +3,41 @@
 <head>
    <title>CIT261</title>
    <meta name="viewport" content="width=device-width, initial-scale1" />
-   <link href="Animation.css" rel="stylesheet">
+   <link href="Transition.css" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-   <script type="text/javascript" src="Animation.js"></script>
-   <script type="application/json" src="Animation.js"></script>
 </head>
 <body id="body">
     <div id="headContainer" class="headContainer">
-        Animation
+        Transition
     </div>
     <div id="container">
         <div id="animbutton" class="animbutton">
-            <button id="testbut1" class="animbut">Press</button>
-            <button id="testbut2" class="animbut">Win a prize</button>
-            <button id="testbut3" class="animbut">Press</button>            
+            <input id="check1" class="animbut" type="checkbox">
+            <label for="check1">Red</label>
+            <input id="check2" class="animbut" type="checkbox">
+            <label for="check2">Yellow</label>
+            <input id="check3" class="animbut" type="checkbox">
+            <label for="check3">Green</label>  
+            <div id="div1" class="test">hover here</div>        
+            <div id="div2" class="test">hover here</div>        
+            <div id="div3" class="test">hover here</div>        
+            <div id="div4" class="test">hover here</div>        
         </div>
     </div>
     <div id="lowercontainer">
         <div id="container1">
-            <button id="game">Catch Me</button>
-            <button id="game1" style="visibility: collapse;">Catch Me</button>
+            this block with Transition to the right and get larger;
         </div>
-        <div id="container2">
-            <img id="img1" src="ball.jpg" >
-            
-        </div>
-        <div id="container3">
-            <img id="img2" src="cloud.jpg" height="300px">            
-        </div>
+    </div>
+    <div id="lowercontainer1">
+        <div id="banner">
+            <img id="img1" class="slide" src="grilled-chicken.jpg" >                        
+            <img id="img2" src="oriental-chicken.jpg">                        
+            <img id="img3" src="barbecue.jpg" >
+            <img id="img4" src="grilled-chicken.jpg" >                        
+            <img id="img5" src="oriental-chicken.jpg">                        
+            <img id="img6" src="barbecue.jpg" >                       
+        </div>        
     </div>
 </body>
 </html>

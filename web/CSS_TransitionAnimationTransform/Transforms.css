@@ -53,12 +53,12 @@
 
 #container3{
     background-color:rgb(154, 217, 234);
-    overflow:hidden;
-    width: 500px;
+    width: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 #img2{
+    opacity: 0;
     background-color: rgb(154, 217, 234);
     animation-name: slide;
     animation-delay: 0s;
@@ -69,7 +69,7 @@
 }
 
 @keyframes slide{
-    10%{transform: translate(50px)}
+    10%{transform: translate(50px),}
     15%{transform: translate(100px)}
     20%{transform: translate(150px)}
     25%{transform: translate(200px)}
@@ -87,12 +87,13 @@
     85%{transform: translate(150px)}
     90%{transform: translate(100px)}
     95%{transform: translate(50px)}
-    100%{transform: translate(0px)}
+    100%{transform: translate(0px); opacity: 1}
 }
 #img3{
+    opacity: 0;
     background-color: rgb(154, 217, 234);
     animation-name: slide2;
-    animation-delay: 2500ms;
+    animation-delay: 2450ms;
     animation-direction: forward;
     animation-duration: 7500ms;
     animation-iteration-count: infinite;
@@ -118,12 +119,13 @@
     85%{transform: translate(150px)}
     90%{transform: translate(100px)}
     95%{transform: translate(50px)}
-    100%{transform: translate(0px)}
+    100%{transform: translate(0px); opacity: 1;}
 }
 #img4{
+    opacity: 0;
     background-color: rgb(154, 217, 234);
     animation-name: slide3;
-    animation-delay: 5000ms;
+    animation-delay: 4550ms;
     animation-direction: forward;
     animation-duration: 7500ms;
     animation-iteration-count: infinite;
@@ -148,7 +150,7 @@
     85%{transform: translate(150px)}
     90%{transform: translate(100px)}
     95%{transform: translate(50px)}
-    100%{transform: translate(0px)}
+    100%{transform: translate(0px); opacity: 1;}
 }
 
 
@@ -187,9 +189,11 @@
 .textin{
     border: 3px solid black;
     transition: transform 1s;
+    transition: background-color 1s;
 }
 .textin:focus{
     transform: scale(1.5);
+    background-color: #999;
 }
 
 #menu{
@@ -221,9 +225,9 @@
     flex-direction: row;
 }
 #containerbox1{
-    margin-left: 20px;
-    width: 100px;
-    height: 100px;
+    margin-left: 70px;
+    width: 300px;
+    height: 300px;
     background-color: #3e8e41;
     transition: transform 1s;
 }
@@ -231,24 +235,25 @@
     transform: rotate(360deg);
 }
 #containerbox2{
-    margin-left: 20px;
-    width: 100px;
-    height: 100px;
+    margin-left: 70px;
+    width: 300px;
+    height: 300px;
     background-color: yellow;
     transition: transform 1s;
 }
 #containerbox2:hover{
     transform: skewX(20deg);
+    background-color: lightgray;
 }
 
 #containerbox3{
-    margin-left: 20px;
-    width: 100px;
-    height: 100px;
+    margin-left: 70px;
+    width: 300px;
+    height: 300px;
     background-color: rebeccapurple;
     transition: transform 1s;
 }
 #containerbox3:hover{
-    transform: rotate(-20deg);
+    transform: rotate(-50deg);
     transform-origin: 10% 10%;
 }
