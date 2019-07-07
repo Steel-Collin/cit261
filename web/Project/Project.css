@@ -1,0 +1,97 @@
+body{
+    background-color: darkslategray;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+}
+
+#title{
+    color: white;
+}
+
+#trivia{
+    width: 500px;
+    height: 500px;
+    background-color: rgb(27, 27, 78);
+}
+
+select{
+    color: white;
+    background-color: darkslategray;
+    font-size: 20px;
+}
+.menusub{
+    color: white;
+    background-color: darkslategray;
+    font-size: 20px;
+    border: 3px solid gray;
+    padding: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    
+}
+
+#score_hint{
+    margin-left: 15px;
+    border: 3px solid gray;
+    display: flex;
+    flex-direction: row;
+    max-width: 900px;
+    font-size: 20px;
+    height: 100px;
+}
+#hint{
+    margin: auto;
+}
+    
+#hintbut{
+    color:white;
+    font-size: 35px;
+    background-color: darkslategray;
+    box-shadow: 0 9px rgb(50, 50, 50);
+    border-radius: 10px;
+    animation-delay: 10s;
+    animation-duration: 3s;
+    animation-name: hintanim;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes hintanim{
+    0%{color: white; }
+    25%{color: yellow;}
+    50%{color: orangered;}
+    75%{color:  yellow;}
+    100%{color: darkslategray;}
+}
+
+#hintbut:active{
+    transform: scale(.95);
+    box-shadow: none;
+}
+#score{
+    margin: auto;
+    font-size: 35px;
+    color: white
+}
+#nextQ{
+    height: 40px;
+    color:white;
+    background-color: darkslategray;
+    box-shadow: 0 9px rgb(50, 50, 50);
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 20px;
+}
+#nextQ:active{
+    transform: scale(.95);
+    box-shadow: none
+}
+
+#question{
+    font-size: 20px;
+    color: white;
+    margin-left: 15px;
+}
