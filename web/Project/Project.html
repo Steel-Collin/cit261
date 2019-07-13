@@ -15,7 +15,7 @@
             </div>
             <div class="menu" id="menu" >
                 <div class="menusub" id="nextquest">
-                    <button id="nextQ">Next Question</button>
+                    <button id="nextQ" onclick="getQuestion()">Next Question</button>
                 </div>
                 <div  class="menusub" id="category">
                     <select id="catdrop" value="27">
@@ -50,20 +50,30 @@
         <div id="trivia">
             <div id="cat">            
             </div>
-            <div id="question">
+            <div id="questiondiv">
+                <div id="question">
 
+                </div>
             </div>
-            <div id="ans1" class="answer">
+            <div id="ans1div" class="answer" onclick="selectAnswer('ans1div')">
+                <div id="ans1">
 
+                </div>
             </div>
-            <div id="ans2" class="answer">
-
+            <div id="ans2div" class="answer" onclick="selectAnswer('ans2div')">
+                <div id="ans2">
+                    
+                </div> 
             </div>
-            <div id="ans3" class="answer">
-
+            <div id="ans3div" class="answer" onclick="selectAnswer('ans3div')">
+                <div id="ans3">
+                    
+                </div>
             </div>
-            <div id="ans4" class="answer">
-                
+            <div id="ans4div" class="answer" onclick="selectAnswer('ans4div')">
+                <div id="ans4">
+                    
+                </div>
             </div>
         </div>
     </div>
@@ -74,9 +84,10 @@
                 <span>Score:</span><span id="scorevalue">0</span>
             </div>
             <div id="hint">
-                <button id="hintbut">Hint</button>
+                <button id="hintbut" onclick="getHint()">Hint</button>
             </div>
         </div>
     </div>
+    
 </body>
 </html>

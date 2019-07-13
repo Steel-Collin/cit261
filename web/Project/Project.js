@@ -1,25 +1,46 @@
 function setValues(){
     sessionStorage.setItem('amount', 1);
     localStorage.removeItem('results');
+    document.getElementById('trivia').addEventListener('transitionend', changeQuestion);
+    sessionStorage.setItem('turn', 0);
 }
 function getQuestion(){
-    var count = localStorage.getItem('count' )
+    var count = localStorage.getItem('count' );
     if(localStorage.getItem("results") === undefined || localStorage.getItem("results") === null){
         localStorage.setItem('count', 0);
         localStorage.setItem('amount', 10);
-        callAPI(10);        
+        callAPI(10);    
+
     }
-    else if(count >= localStorage.getItem("results").length)
+    else if(count >= JSON.parse(localStorage.getItem("results")).length)
     {
         localStorage.setItem('count', 0);
         localStorage.setItem('amount', 10);
         callAPI(10);        
     }
     else{
-        document.getElementById('question').innerHTML = localStorage.getItem("results")[count].question;
+        var tempJson = JSON.parse(localStorage.getItem("results"));
+        document.getElementById('question').innerHTML = tempJson[count].question;
+        document.getElementById('ans1').innerHTML = tempJson[count].correct_answer;
+        document.getElementById('ans2').innerHTML = tempJson[count].incorrect_answers[0];
+        document.getElementById('ans3').innerHTML = tempJson[count].incorrect_answers[1];
+        document.getElementById('ans4').innerHTML = tempJson[count].incorrect_answers[2];
         count++;
         localStorage.setItem('count', count);
+        
+        if(document.getElementById('trivia').style.transform == "rotateY(90deg)"){
+            document.getElementById('hintbut').style.animation = "";
+            document.getElementById('trivia').style.transitionDelay = "0s";
+            document.getElementById('trivia').style.transform = "rotateY(0deg)";
+        }
     }
+    document.getElementById('ans2div').style.display = "block";
+    document.getElementById('ans2').style.display = "block";
+    document.getElementById('ans3').style.display = "block";
+    document.getElementById('ans3div').style.display = "block";
+    document.getElementById('ans4').style.display = "block";
+    document.getElementById('ans4div').style.display = "block";
+    
 }
 
 function callAPI(amount){
@@ -43,13 +64,20 @@ function callbackResponse(response){
     if(jsonData.response_code == 0)
     {
         localStorage.setItem('results', JSON.stringify(jsonData.results));
+        var test = JSON.parse(localStorage.getItem("results")).length;
         var count = localStorage.getItem('count');
         document.getElementById('cat').innerHTML = jsonData.results[count].category;
         document.getElementById('question').innerHTML = jsonData.results[count].question;
-        document.getElementById('question').innerHTML = jsonData.results[count].correct_answer;
-        document.getElementById('question').innerHTML = jsonData.results[count].incorrect_answer[0];
-        document.getElementById('question').innerHTML = jsonData.results[count].incorrect_answer[1];
-        document.getElementById('question').innerHTML = jsonData.results[count].incorrect_answer[2];
+        document.getElementById('question').style.marginLeft = "15px";
+        document.getElementById('ans1').innerHTML = jsonData.results[count].correct_answer;
+        document.getElementById('ans1').style.marginLeft = "40px";
+        localStorage.setItem('correctanswer', 'ans1div');
+        document.getElementById('ans2').innerHTML = jsonData.results[count].incorrect_answers[0];
+        document.getElementById('ans2').style.marginLeft = "40px";
+        document.getElementById('ans3').innerHTML = jsonData.results[count].incorrect_answers[1];
+        document.getElementById('ans3').style.marginLeft = "40px";
+        document.getElementById('ans4').innerHTML = jsonData.results[count].incorrect_answers[2];
+        document.getElementById('ans4').style.marginLeft = "40px";
         count++;
         localStorage.setItem('count', count);
     }
@@ -63,4 +91,63 @@ function callbackResponse(response){
             alert("An error occurred with the API!");
         }
     }
+    if(document.getElementById('trivia').style.transform == "rotateY(90deg)"){
+        document.getElementById('hintbut').style.animation = "";
+        document.getElementById('trivia').style.transitionDelay = "0s";
+        document.getElementById('trivia').style.transform = "rotateY(0deg)";
+    }
+}
+
+function selectAnswer(answer){
+    document.getElementById('trivia').style.transitionDelay = "2s";
+    document.getElementById('trivia').style.transform = "rotateY(90deg)";
+    sessionStorage.setItem('turn', 1);
+    isAnswerCorrect(answer);
+    document.getElementById('hintbut').style.animation = "none";
+}
+
+function isAnswerCorrect(answer){
+    if(answer == localStorage.getItem('correctanswer')){
+        document.getElementById(answer).style.backgroundColor = "lime";
+        var scoreElem = document.getElementById('scorevalue');
+        var score = parseInt(scoreElem.innerHTML);
+        var diffvalue = document.getElementById('diffdrop').value.toLowerCase();
+        switch(diffvalue){
+            case "easy":
+                score += 100;
+                break;
+            case "medium":
+                score += 200;
+                break;
+            case "hard":
+                score += 500;
+                break;
+            default:
+                break;
+        }
+        
+        scoreElem.innerHTML = score;
+    }
+    else{
+        document.getElementById(answer).style.backgroundColor = "red";
+    }
+}
+
+function changeQuestion(){
+    if(sessionStorage.getItem('turn') == 1){
+        document.getElementById('ans1div').style.backgroundColor = "rgb(27, 27, 78)";
+        document.getElementById('ans2div').style.backgroundColor = "rgb(27, 27, 78)";
+        document.getElementById('ans3div').style.backgroundColor = "rgb(27, 27, 78)";
+        document.getElementById('ans4div').style.backgroundColor = "rgb(27, 27, 78)";
+        getQuestion();
+        sessionStorage.setItem('turn', 0);
+        
+    }
+    
+}
+
+function getHint(){
+    var num = Math.floor(Math.random() * 5) + 2;
+    document.getElementById("ans" + num + "div").style.display = "none";
+    document.getElementById("ans" + num).style.display = "none";
 }

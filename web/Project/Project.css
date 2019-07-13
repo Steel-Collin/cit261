@@ -12,10 +12,14 @@ body{
 }
 
 #trivia{
+    position: relative;
     width: 500px;
     height: 500px;
     background-color: rgb(27, 27, 78);
+    Transition: transform 1s linear 2s;
 }
+
+
 
 select{
     color: white;
@@ -90,8 +94,23 @@ select{
     box-shadow: none
 }
 
-#question{
-    font-size: 20px;
+#question, #ans1, #ans2, #ans3, #ans4{
+    font-size: 30px;
     color: white;
-    margin-left: 15px;
+    transition: margin 1s;
 }
+
+#ans1:active, #ans2:active, #ans3:active, #ans4:active{
+    transform: scale(.95);
+}
+
+#questiondiv, #ans1div, #ans2div, #ans3div, #ans4div{
+    padding-bottom: 15px;
+}
+#cat{
+    color: white;
+    font-size: 35px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
