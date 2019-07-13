@@ -1,7 +1,19 @@
+var myVar = setInterval(myTimer ,10000);
+function myTimer() {
+    var displayed = document.getElementById('popup');
+    if(displayed.style.display == "block")
+    {
+        displayed.style.display = "none";
+    }
+}
+
 function setValues(){
     sessionStorage.setItem('amount', 1);
     localStorage.removeItem('results');
     document.getElementById('trivia').addEventListener('transitionend', changeQuestion);
+    document.getElementById('instruct').addEventListener('animationend', secondAnim);
+    document.getElementById('instruct2').addEventListener('animationend', thirdAnim);
+    document.getElementById('instruct3').addEventListener('animationend', forthAnim);
     sessionStorage.setItem('turn', 0);
 }
 function getQuestion(){
@@ -127,6 +139,7 @@ function isAnswerCorrect(answer){
         }
         
         scoreElem.innerHTML = score;
+        popupBanner();
     }
     else{
         document.getElementById(answer).style.backgroundColor = "red";
@@ -150,4 +163,39 @@ function getHint(){
     var num = Math.floor(Math.random() * 5) + 2;
     document.getElementById("ans" + num + "div").style.display = "none";
     document.getElementById("ans" + num).style.display = "none";
+}
+
+function popupBanner(){
+    var score = document.getElementById('scorevalue');
+    var popup = document.getElementById('popup');
+    if(parseInt(score.innerHTML) >= 1000)
+    {
+        popup.style.display = "block";
+
+        if(sessionStorage.getItem('level') === undefined || sessionStorage.getItem('level') === null)
+            sessionStorage.setItem('level', 2);
+        else
+            sessionStorage.setItem('level', parseInt(sessionStorage.getItem('level')) + 1)
+        popup.innerHTML = "\"Congradulations!\"  You have reached level " + sessionStorage.getItem('level');
+        score.innerHTML = 0;
+    }
+
+}
+
+function secondAnim(){
+    var instruct = document.getElementById('instruct2');
+    instruct.style.display = "block";
+    instruct.style.animationIterationCount = "1";
+}
+
+function thirdAnim(){
+    var instruct = document.getElementById('instruct3');
+    instruct.style.display = "block";
+    instruct.style.animationIterationCount = "1";
+}
+
+function forthAnim(){
+    var instruct = document.getElementById('instruct4');
+    instruct.style.display = "block";
+    instruct.style.animationIterationCount = "1";
 }
