@@ -19,7 +19,10 @@ body{
     Transition: transform 1s linear 2s;
 }
 
-
+#header{
+    font-size: 35px;
+    margin-left: 15px;
+}
 
 select{
     color: white;
